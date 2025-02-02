@@ -13,3 +13,5 @@ For the application board positions start from 0 to 63, so the board looks like:
 3  16 17 18 19 20 21 22 23
 2  8  9  10 11 12 13 14 15
 1  0  1  2  3  4  5  6  7
+
+Board controls piece movements

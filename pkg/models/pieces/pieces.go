@@ -9,7 +9,7 @@ const (
 
 type IPiece interface {
 	Move(b *board.IBoard, pos int) (bool, error)
-	GetMoves(b *board.IBoard) ([]int, error)
+	GetMoves(b *board.IBoard) []int
 	IsMoveValid(b *board.IBoard, pos int) bool
 
 	// GetColor returns piece color (Black or White)

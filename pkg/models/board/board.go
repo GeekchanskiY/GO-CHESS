@@ -6,6 +6,7 @@ const (
 	// Size is a board size. Board positions start from 0
 	Size         = 8*8 - 1
 	PiecesAmount = 8 * 2
+	PiecesPerRow = 8
 )
 
 type IBoard interface {
@@ -22,18 +23,20 @@ type Board struct {
 	moves  []pieces.IMovement
 }
 
-func (b *Board) NewBoard() Board {
+func NewBoard() Board {
 	initialPieces := make([]pieces.IPiece, 0, PiecesAmount)
 
 	// Set pawns
 	for i := 0; i < 8; i++ {
-		blackPawn := pieces.NewPawn(0, pieces.Black)
-		whitePawn := pieces.NewPawn(0, pieces.White)
+		blackPawn := pieces.NewPawn(PiecesPerRow*7+i, pieces.Black)
+		whitePawn := pieces.NewPawn(PiecesPerRow+i, pieces.White)
 
 		initialPieces = append(initialPieces, &blackPawn)
 		initialPieces = append(initialPieces, &whitePawn)
 	}
-	return Board{}
+	return Board{
+		pieces: initialPieces,
+	}
 }
 
 func (b *Board) GetMoves() []pieces.IMovement {

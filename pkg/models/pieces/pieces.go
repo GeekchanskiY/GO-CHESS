@@ -1,11 +1,19 @@
 package pieces
 
-type IPiece interface {
-	Move(pos int) (bool, error)
-	GetMoves() ([]int, error)
+import "GO-CHESS/pkg/models/board"
 
-	// ValidateMove check if move is valid
-	ValidateMove(pos int) bool
+const (
+	Black = iota
+	White
+)
+
+type IPiece interface {
+	Move(b *board.IBoard, pos int) (bool, error)
+	GetMoves(b *board.IBoard) ([]int, error)
+	IsMoveValid(b *board.IBoard, pos int) bool
+
+	// GetColor returns piece color (Black or White)
+	GetColor() int
 
 	String() string
 }

@@ -1,5 +1,7 @@
 package interfaces
 
+// IGame represents game, player connection & bot management
+// TODO: add timer
 type IGame interface {
 	GetBoard() IBoard
 

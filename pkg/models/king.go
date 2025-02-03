@@ -10,15 +10,27 @@ const (
 )
 
 type King struct {
-	C types.Color
+	c   types.Color
+	pos int
 }
 
 var _ interfaces.IPiece = (*King)(nil)
+
+func NewKing(c types.Color, pos int) *King {
+	return &King{
+		c:   c,
+		pos: pos,
+	}
+}
 
 func (k *King) GetValue() int {
 	return KingValue
 }
 
 func (k *King) GetColor() types.Color {
-	return k.C
+	return k.c
+}
+
+func (k *King) GetPos() int {
+	return k.pos
 }

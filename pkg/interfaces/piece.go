@@ -8,4 +8,5 @@ import (
 type IPiece interface {
 	GetValue() int
 	GetColor() types.Color
+	GetPos() int
 }

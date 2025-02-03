@@ -10,14 +10,16 @@ const (
 )
 
 type Bishop struct {
-	C types.Color
+	C   types.Color
+	Pos int
 }
 
 var _ interfaces.IPiece = (*Bishop)(nil)
 
-func NewBishop(color types.Color) *Bishop {
+func NewBishop(color types.Color, pos int) *Bishop {
 	return &Bishop{
-		C: color,
+		C:   color,
+		Pos: pos,
 	}
 }
 
@@ -27,4 +29,8 @@ func (b *Bishop) GetValue() int {
 
 func (b *Bishop) GetColor() types.Color {
 	return b.C
+}
+
+func (b *Bishop) GetPos() int {
+	return b.Pos
 }

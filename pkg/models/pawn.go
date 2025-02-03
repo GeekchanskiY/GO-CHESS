@@ -10,15 +10,27 @@ const (
 )
 
 type Pawn struct {
-	C types.Color
+	c   types.Color
+	pos int
 }
 
 var _ interfaces.IPiece = (*Pawn)(nil)
+
+func NewPawn(color types.Color, pos int) *Pawn {
+	return &Pawn{
+		c:   color,
+		pos: pos,
+	}
+}
 
 func (p *Pawn) GetValue() int {
 	return PawnValue
 }
 
 func (p *Pawn) GetColor() types.Color {
-	return p.C
+	return p.c
+}
+
+func (p *Pawn) GetPos() int {
+	return p.pos
 }

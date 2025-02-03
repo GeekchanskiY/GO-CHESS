@@ -10,15 +10,27 @@ const (
 )
 
 type Queen struct {
-	C types.Color
+	c   types.Color
+	pos int
 }
 
 var _ interfaces.IPiece = (*Queen)(nil)
+
+func NewQueen(c types.Color, pos int) *Queen {
+	return &Queen{
+		c:   c,
+		pos: pos,
+	}
+}
 
 func (q *Queen) GetValue() int {
 	return QueenValue
 }
 
 func (q *Queen) GetColor() types.Color {
-	return q.C
+	return q.c
+}
+
+func (q *Queen) GetPos() int {
+	return q.pos
 }

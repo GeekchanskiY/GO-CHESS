@@ -8,5 +8,8 @@ import (
 
 func main() {
 	game := models.NewGame("", "")
-	fmt.Println(game.GetPlayers()[0].Name())
+	fmt.Println("Game players:")
+	for _, player := range game.GetPlayers() {
+		fmt.Println(player.Name(), player.IsBot())
+	}
 }

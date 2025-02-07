@@ -11,7 +11,7 @@ type Player struct {
 }
 
 var (
-	randomNames = []string{"Dmitry", "Daniil", "Alexander", "Oleg", "Andrew"}
+	randomNames = []string{"Dmitry", "Daniil", "Alexander", "Oleg", "Andrew", "Igor", "Anton", "Ignat", "Asya", "Ali", "Kirill", "Eugene"}
 )
 
 func NewPlayer(name string) *Player {
